@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <form class="subscription-form">
+        <label for="name">Name:</label>
+        <input type="text" id="sub-name" name="name" placeholder="enter your name">
+        <label for="email">Email:</label>
+        <input type="email" id="sub-email" name="email" placeholder="enter your email">
+        <input type="submit" value="Submit">
+    </form> -->
+    <form name="form1" method="get">
+        <input type="button" value="subscription" onclick="jfun3()">
+    </form>
+    <p id="message"></p>
+    <script>
+        function jfun3() {
+            let person=prompt("Enter Your Email to Subscribe", "");
+            if (person != null) {
+            document.getElementById("message").innerHTML =
+            "Hello " + "! thanks for subscribing";
+            }
+        }
+    </script>
+</body>
+</html>

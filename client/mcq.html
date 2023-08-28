@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+        }
+        .question {
+          margin-bottom: 10px;
+        }
+        .options {
+          margin-left: 20px;
+        }
+      </style>
+    <h1>Multiple Choice Question</h1>
+
+    <form>
+    <div class="question">
+    <p>1. which planet is called morning star?</p>
+    <div class="options">
+    <label><input type="radio" name="q1" value="a" data-correct="false"> a) Mercury</label><br>
+    <label><input type="radio" name="q1" value="b" data-correct="true"> b) Venus</label><br>
+    <label><input type="radio" name="q1" value="c" data-correct="false"> c) earth</label><br>
+    </div>
+    </div>
+    
+    <div class="question">
+    <p>2. which is capital city of india?</p>
+    <div class="options">
+    <label><input type="radio" name="q2" value="a" data-correct="false"> a) bangalore</label><br>
+    <label><input type="radio" name="q2" value="b" data-correct="true"> b) Delhi</label><br>
+    <label><input type="radio" name="q2" value="c" data-correct="false"> c) kolkata</label><br>
+    </div>
+    </div>
+    
+    <div class="question">
+    <p>3. who developed ASP.NET core</p>
+    <div class="options">
+    <label><input type="radio" name="q3" value="a" data-correct="false"> a) Google</label><br>
+    <label><input type="radio" name="q3" value="b" data-correct="true"> b) Microsoft</label><br>
+    <label><input type="radio" name="q3" value="c" data-correct="false"> c) apple</label><br>
+    </div>
+    </div>
+    
+    <button type="button" onclick="showResults()">Submit</button>
+    </form>
+    
+    <div id="result"></div>
+    <script>
+        function showResults() {
+          const form = document.querySelector('form');
+          const questions = form.querySelectorAll('.question');
+          let score = 0;
+      
+       
+      
+          questions.forEach((question, index) => {
+            const selectedOption = question.querySelector('input[type="radio"]:checked');
+            if (selectedOption) {
+              const correctAnswer = selectedOption.getAttribute('data-correct');
+              if (correctAnswer === 'true') {
+                score++;
+              }
+            }
+          });
+      
+       
+      
+          const resultMessage = `You got ${score} out of ${questions.length} correct!`;
+          document.getElementById('result').textContent = resultMessage;
+        }
+    </script>
+</body>
+</html>
